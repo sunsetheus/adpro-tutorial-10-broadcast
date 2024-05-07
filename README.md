@@ -14,3 +14,11 @@ Pada server.rs, bagian yang diubah adalah `let listener = TcpListener::bind("127
 Pada client.rs, bagian yang diubah adalah `let (mut ws_stream, _) = ClientBuilder::from_uri(Uri::from_static("ws://127.0.0.1:2000")).connect().await?;` menjadi `let (mut ws_stream, _) = ClientBuilder::from_uri(Uri::from_static("ws://127.0.0.1:8080")).connect().await?;`
 
 jika perubahan port dilakukan secara konsisten (antara client dan server), maka tidak terjadi error.
+
+### 2.3. Small changes
+<img src="image/server2.JPG">
+<img src="image/client2_1.JPG">
+<img src="image/client2_2.JPG">
+<img src="image/client2_3.JPG">
+
+perubahan terjadi pada tampilan client yang dapat melihat IP dari client lain yang mengirim pesan dengan cara mengubah kode menjadi `bcast_tx.send(format!("{addr} : {text}"))?;` pada server.rs
